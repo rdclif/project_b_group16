@@ -1,0 +1,26 @@
+*Storing parking spot information*
+Create database to store owner information, pictures, and pricing
+Create webpage for owners to add their parking spots to their account and set details
+Create form to add new info
+Send form to db, insert into table
+
+*Reserving a parking spot*
+Create web page for listing parking spaces
+Create search functionality for filtering by location/other
+Allow users to select spot from filtered list
+Reserve selected spot for user
+Inform owner that spot has been reserved
+
+*Pay for a parking spot*
+Implement safe transactions through use of a Paypal API.
+Create user interface for making transaction.
+Transaction information stored in database.
+
+*Sign-up for/login to an account*
+Create webpage for people to create an account OR login
+If new, create form for users/owners to sign up for account
+Send/store input to db
+If returning, create form for users/owners to input account name/password
+Send input to db/validate login credentials
+If not found, return login error message
+Else, start new session for user/owner
