@@ -1,5 +1,5 @@
 *Storing parking spot information*
-Create database to store owner information, pictures, and pricing
+Create database to store owner information, pictures, and pricing DONE
 Create webpage for owners to add their parking spots to their account and set details
 Create form to add new info
 Send form to db, insert into table
