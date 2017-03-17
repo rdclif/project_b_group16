@@ -1,15 +1,26 @@
 *Storing parking spot information*
 Create database to store owner information, pictures, and pricing DONE
-Create webpage for owners to add their parking spots to their account and set details
-Create form to add new info
-Send form to db, insert into table
+Create webpage for owners to add their parking spots to their account and set details DONE
+Create form to add new info DONE
+Send form to db, insert into table DONE
 
 *Reserving a parking spot*
 Create web page for listing parking spaces
+    SELECT * FROM c9.parking WHERE availability = TRUE
+    res.render('search', context)
 Create search functionality for filtering by location/other
+    (new app.get)
+    SELECT * FROM c9.parking WHERE availability/city/state/etc = ?
+    res.send(rows)
 Allow users to select spot from filtered list
+    build table on client side using DOM, add checkbox in table
+    submit selected row via POST, send id of spot and user
 Reserve selected spot for user
+    change spot availability to false
+    add spot to user's reserved spots
 Inform owner that spot has been reserved
+    call python script from node, pass owner email and parking spot details
+    
 
 *Pay for a parking spot*
 Implement safe transactions through use of a Paypal API.

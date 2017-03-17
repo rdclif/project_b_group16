@@ -1,0 +1,26 @@
+
+
+<form id="create_account" action="/create_account_check" method="post" enctype="multipart/form-data">
+   <fieldset>
+	<legend>Create Account</legend>
+	<label for="first_name">First Name: </label>
+	    <input type="text" name="first_name" id="first_name" required><br>
+	<label for="last_name">Last Name: </label>
+	    <input type="text" name="last_name" id="last_name" required><br>
+	<label for="user_id">Username: </label>
+	    <input type="text" name="user_id" id="user_id" required><br>
+	<label for="email">Email Address: </label>
+	    <input type="text" name="email" id="email" required><br>
+	<label for="password">Password: </label>
+	    <input type="password" name="password" id="password" required><br>
+	<input type="submit" id="submit" value="Create Account">
+   </fieldset>
+   <table>
+   	 <tr>
+   	 	<td><a href="/log_in"><input type="button" value="Sign In"</a></td>
+       	<td><a href="/"><input type="button" value="home page"</a></td>
+    </tr>
+   </table>
+</form>
+<script src="/create_account.js"></script>
+

@@ -1,0 +1,22 @@
+
+
+<!--<form id="log_in" action="/log_in" method="post" enctype="multipart/form-data">-->
+<form id="log_in" action="/log_in_check" method="post" enctype="multipart/form-data">
+   <fieldset>
+	<legend>User Login</legend>
+	<label for="email">User Email: </label>
+	    <input type="email" name="email" id="email" required><br>
+	<label for="password">Password: </label>
+	    <input type="password" name="password" id="password" required><br>
+	<input type="submit" id="submit" value="Sign in">
+	<!--<input type="submit" id="create" value="Create Account">-->
+   </fieldset>
+   <table>
+   	 <tr>
+   	    <td><a href="/create_account"><input type="button" value="Create Account"</a></td>
+        <td><a href="/"><input type="button" value="Home Page"</a></td>
+    </tr>
+   </table>
+</form>
+<script src="/log_in_script.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">

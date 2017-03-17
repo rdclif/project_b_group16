@@ -1,16 +1,17 @@
+<!-- logout button -->
 <form id="logout" action="/logout" method="get">
-	<fieldset id = log_out>
+	<fieldset>
 		<input type="submit" id="submit" value="Logout">
 	</fieldset>
 </form>
 
-<form id="add_spot" action="/insert" method="post" enctype="multipart/form-data">
+<form id="search_parking" action="/search" method="post" enctype="multipart/form-data">
    <fieldset>
-	<legend>Enter location</legend>
-	<label for="address">Street Address: </label>
-	    <input type="text" name="address" id="address" required><br>
+	<legend>Search for Parking Spot</legend>
+	<label for="zip">Zip Code: </label>
+	    <input type="number" name="zip" id="zip"><br>
 	<label for="city">City: </label>
-	    <input type="text" name="city" id="city" required><br>
+	    <input type="text" name="city" id="city"><br>
 	<label for="state">State: </label>
 		<select name="state" id ="state">
 			<option value="AL">Alabama</option>
@@ -65,30 +66,15 @@
 			<option value="WI">Wisconsin</option>
 			<option value="WY">Wyoming</option>
 		</select><br>
-	<label for="zip">Zip Code: </label>
-	    <input type="number" name="zip" id="zip" required><br>
-	<label for="availability">Available: </label>
-	    <select name="availability" id="availability">
-	    	<option value=1>yes</option>
-	    	<option value=0>no</option>
-	    </select>
-	<label for="price">Price: </label>
- 	    <input type="number" step="any" name="price" id="price" min="0" required><br>
- 	<label for="photo">Parking Spot Photo: </label>
- 		<input type="file" name="spot_photo">
-	
-	<input type="submit" id="submit" value="Submit Spot">
+	<input type="submit" id="submit" value="Search">
+   </fieldset>
+
+   <fieldset id = btn>
+       <a href="/"><input type="button" id = "button" value="home page"></a>
    </fieldset>
 </form>
 
-<h1>Submitted Spots</h1>
+<div id = "table wrapper"><table id="search table"></table></div>
 
-<div id = "table wrapper"><table id="submitted spots"></table></div>
-
-<fieldset id = btn>
-       <a href="/"><input type="button" id = "button" value="home page"</a>
-</fieldset>
-
-<script src="/add_parking_script.js"></script>
-
+<script src="/search_script.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">

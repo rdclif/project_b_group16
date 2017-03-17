@@ -1,18 +1,117 @@
+
+function buildSubmittedSpots() {
+
+    var table_parent = document.getElementById("table wrapper");
+    var table = document.getElementById('submitted spots');
+    table_parent.removeChild(table);
+
+    table = document.createElement("TABLE");
+    table.setAttribute("id","submitted spots");
+    var headerRow = document.createElement("tr");
+    var header;
+
+    //create header row
+    header = document.createElement("th");
+    header.textContent = "Parking_id";
+    headerRow.appendChild(header);
+    header = document.createElement("th");
+    header.textContent = "Address";
+    headerRow.appendChild(header);
+    header = document.createElement("th");
+    header.textContent = "City";
+    headerRow.appendChild(header);
+    header = document.createElement("th");
+    header.textContent = "State";
+    headerRow.appendChild(header);
+    header = document.createElement("th");
+    header.textContent = "Zip";
+    headerRow.appendChild(header);
+    header = document.createElement("th");
+    header.textContent = "Availability";
+    headerRow.appendChild(header);
+    header = document.createElement("th");
+    header.textContent = "Price";
+    headerRow.appendChild(header);
+    table.appendChild(headerRow);
+
+    var req = new XMLHttpRequest();
+    req.open("GET", "/getSubmittedSpots", true);
+    req.addEventListener('load',function() {
+        if(req.status >= 200 && req.status < 400) {
+            var arr = JSON.parse(req.responseText);
+
+            arr.forEach(function (spot) {
+                var row = document.createElement("tr");
+                var cell;
+
+                for (var p in spot) {
+                    if (p == "availability") {
+                        cell = document.createElement("td");
+                        if (spot[p] == 1) {
+                            cell.textContent = "Yes";
+                        } else {
+                            cell.textContent = "No";
+                        }
+                        row.appendChild(cell);
+                    }
+                    else if (p != "photo" && p != "fk_owner_id") {
+                        cell = document.createElement("td");
+                        cell.textContent = spot[p];
+                        row.appendChild(cell);
+                    }
+                }
+                table.appendChild(row);
+            });
+        }
+        else {
+            console.log("Error in network request: " + req.statusText);
+        }
+    });
+    req.send(null);
+    table_parent.appendChild(table);
+}
+
 document.addEventListener('DOMContentLoaded',function(){
+    
+    buildSubmittedSpots();
 	
 	document.getElementById('add_spot').addEventListener('submit',function(event){
-		event.preventDefault();
-		
-		console.log("made it this far");
-		
-	    var form = document.getElementById('add_form');
-	    var formData = new formData(form);
-		
-		var newReq = new XMLHttpRequest();
-		newReq.setRequestHeader('Content-Type', 'application/json');
-		newReq.open('POST', '/app.js', true);
-		newReq.send(formData);
-	});		
+		var payload = {address: null, city: null, state:null, zip:null,availability:null, price:null};
+
+        payload.address = document.getElementById('address').value;
+        payload.city = document.getElementById('city').value;
+        payload.state = document.getElementById('state').value;
+        payload.zip = document.getElementById('zip').value;
+        payload.availability = document.getElementById('availability').value;
+        payload.price = document.getElementById('price').value;
+    
+
+        var req = new XMLHttpRequest();
+        req.open('POST', '/insert', true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.addEventListener('load',function(){
+            if(req.status >= 200 && req.status < 400){
+                buildSubmittedSpots();
+            } else {
+                console.log("Error in network request: " + req.statusText);
+            }});
+        req.send(JSON.stringify(payload));
+        event.preventDefault();
+	});	
+	
+	document.getElementById('logout').addEventListener('submit',function(event){
+    	var req = new XMLHttpRequest();
+        req.open("GET", "/logout", true);
+        req.addEventListener('load',function() {
+            if(req.status >= 200 && req.status < 400) {
+                //no problem
+            }
+            else{
+                console.log("logout error");
+            }
+        });
+	});
+	
 });
 
 

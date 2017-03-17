@@ -1,0 +1,29 @@
+<form id="logout" action="/logout" method="get">
+	<fieldset id = log_out>
+		<input type="submit" id="submit" value="Logout">
+	</fieldset>
+</form>
+
+<form id="car_info" action="/add" method="post" enctype="multipart/form-data">
+   <fieldset>
+	<legend>Enter car info</legend>
+	    <label for="make">Make of car: </label>
+	    <input type="text" name="make" id="make" required><br>
+	    <label for="model">Model of car: </label>
+	    <input type="text" name="model" id="model" required><br>
+	    <label for="year">Year of car: </label>
+	    <input type="number" name="year" id="year" required><br>
+	    <label for="license">License plate of car: </label>
+	    <input type="text" name="license" id="license" required><br>
+	    <label for="car_photo">Car Photo: </label>
+ 		<input type="file" name="car_photo">
+ 		
+		<input type="submit" id="submit" value="Submit car">
+   </fieldset>
+</form>
+
+<fieldset id = btn>
+    <a href="/"><input type="button" id = "button" value="home page"</a>
+</fieldset>
+<script src="/add_car_script.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">

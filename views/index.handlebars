@@ -1,9 +1,55 @@
-<!DOCTYPE html>
-<head>
-	<meta charset="utf-8">
-    <title>Parkr</title>
-</head>
-    <body>
-        {{{body}}}
-    </body>
-</html>
+<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+<script src="/index_script.js"></script>
+
+<!-- logout button -->
+<form id="logout" action="/logout" method="get">
+	<fieldset id = log_out>
+		<input type="submit" id="submit" value="Logout">
+	</fieldset>
+</form>
+
+<h1>Available Spots </h1>
+<!--
+
+<table id = table1>
+    <tr>
+        <th>parking_id</th>
+        <th>address</th>
+        <th>city</th>
+        <th>state</th>
+        <th>zip</th>
+        <th>availability</th>
+        <th>price</th>
+    </tr>
+
+    {{#each results}}    
+    <tr>
+        <td>{{parking_id}}</td>
+        <td>{{address}}</td>
+        <td>{{city}}</td>
+        <td>{{state}}</td>
+        <td>{{zip}}</td>
+        <td>{{price}}</td>
+
+    </tr>
+    
+    {{/each}}
+</table>
+-->
+
+<div id = "table wrapper"><table id="submitted spots"></table></div>
+
+<fieldset id = btn>
+    <a href="/add_parking"><input type="button" id = "button" value="add parking"</a>
+    <a href="/search_parking"><input type="button"  id = "button" value="search parking"</a>
+    <a href="/add_car"><input type="button"  id = "button" value="add car"</a>
+</fieldset>
+<!--
+<table id = table2>
+    <tr>
+       <td><a href="/add_parking"><input type="button" value="add parking"</a></td>
+       <td><a href="/search_parking"><input type="button" value="search parking"</a></td>
+       <td><a href="/add_car"><input type="button" value="add car"</a></td>
+    </tr>
+</table>
+-->
